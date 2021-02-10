@@ -1,0 +1,441 @@
+﻿@model LoginViewModel
+
+@{
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sign In | TechVisionCS PMS</title>
+    <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Gradient Able Bootstrap admin template made using Bootstrap 4. The starter version of Gradient Able is completely free for personal project." />
+    <meta name="keywords" content="free dashboard template, free admin, free bootstrap template, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
+    <meta name="author" content="codedthemes">
+    <!-- Favicon icon -->
+    <link rel="icon" href="~/admin_assets/images/favicon.ico" type="image/x-icon">
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="~/admin_assets/css/bootstrap/css/bootstrap.min.css">
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css" href="~/admin_assets/icon/themify-icons/themify-icons.css">
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="~/admin_assets/icon/icofont/css/icofont.css">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="~/admin_assets/css/style.css">
+</head>
+
+<body class="fix-menu">
+    <!-- Pre-loader start -->
+    <div class="theme-loader">
+        <div class="loader-track">
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+    <!-- Pre-loader end -->
+
+    <section class="login p-fixed d-flex text-center bg-primary common-img-bg">
+        <!-- Container-fluid starts -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <!-- Authentication card start -->
+                    <div class="login-card card-block auth-body mr-auto ml-auto">
+                        <form class="md-float-material" method="POST" asp-action="Login" asp-controller="Account">
+                            <div class="text-center">
+                                <img src="~/admin_assets/images/logo.png" alt="logo.png">
+                            </div>
+                            <div class="auth-box">
+                                <div class="row m-b-20">
+                                    <div class="col-md-12">
+                                        <h3 class="text-left txt-primary">Sign In</h3>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div asp-validation-summary="All" class="text-danger text text-left"></div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="input-group">
+                                    <input type="email" class="form-control" placeholder="Your Email Address" name="Email" asp-for="Email" required autofocus>
+                                    <span class="md-line"></span>
+                                </div>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" placeholder="Password" name="Password" asp-for="Password">
+                                    <span class="md-line"></span>
+                                </div>
+                                <div class="row m-t-25 text-left">
+                                    <div class="col-sm-6 col-xs-12 d-none">
+                                        <div class="checkbox-fade fade-in-primary">
+                                            <label>
+                                                <input type="checkbox" value="">
+                                                <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
+                                                <span class="text-inverse">Remember me</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-xs-12 forgot-phone text-right">
+                                        <a href="#" class="text-right f-w-600 text-inverse"> Forgot Your Password?</a>
+                                    </div>
+                                </div>
+                                <div class="row m-t-30">
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Sign In</button>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <p class="text-inverse text-left m-b-0">Thank you and enjoy our product.</p>
+                                        <p class="text-inverse text-left"><b>TechVision Consultancy Services</b></p>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="~/admin_assets/images/auth/Logo-small-bottom.png" alt="small-logo.png">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                        <!-- end of form -->
+                    </div>
+                    <!-- Authentication card end -->
+                </div>
+                <!-- end of col-sm-12 -->
+            </div>
+            <!-- end of row -->
+        </div>
+        <!-- end of container-fluid -->
+    </section>
+    <!-- Warning Section Starts -->
+    <!-- Older IE warning message -->
+    <!--[if lt IE 9]>
+    <div class="ie-warning">
+        <h1>Warning!!</h1>
+        <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+        <div class="iew-container">
+            <ul class="iew-download">
+                <li>
+                    <a href="http://www.google.com/chrome/">
+                        <img src="assets/images/browser/chrome.png" alt="Chrome">
+                        <div>Chrome</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.mozilla.org/en-US/firefox/new/">
+                        <img src="assets/images/browser/firefox.png" alt="Firefox">
+                        <div>Firefox</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.opera.com">
+                        <img src="assets/images/browser/opera.png" alt="Opera">
+                        <div>Opera</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.apple.com/safari/">
+                        <img src="assets/images/browser/safari.png" alt="Safari">
+                        <div>Safari</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                        <img src="assets/images/browser/ie.png" alt="">
+                        <div>IE (9 & above)</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <p>Sorry for the inconvenience!</p>
+    </div>
+    <![endif]-->
+    <!-- Warning Section Ends -->
+    <!-- Required Jquery -->
+    <script type="text/javascript" src="~/admin_assets/js/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/admin_assets/js/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/admin_assets/js/popper.js/popper.min.js"></script>
+    <script type="text/javascript" src="~/admin_assets/js/bootstrap/js/bootstrap.min.js"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="~/admin_assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" src="~/admin_assets/js/modernizr/modernizr.js"></script>
+    <script type="text/javascript" src="~/admin_assets/js/modernizr/css-scrollbars.js"></script>
+    <script type="text/javascript" src="~/admin_assets/js/common-pages.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <title>Sign In | TechVisionCS PMS</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="Gradient Able Bootstrap admin template made using Bootstrap 4. The starter version of Gradient Able is completely free for personal project." />
+        <meta name="keywords" content="free dashboard template, free admin, free bootstrap template, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
+        <meta name="author" content="codedthemes">
+         Favicon icon
+        <link rel="icon" href="~/admin_assets/images/favicon.ico" type="image/x-icon">
+         Google font
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
+         Required Fremwork
+        <link rel="stylesheet" type="text/css" href="~/admin_assets/css/bootstrap/css/bootstrap.min.css">
+         themify-icons line icon
+        <link rel="stylesheet" type="text/css" href="~/admin_assets/icon/themify-icons/themify-icons.css">
+         ico font
+        <link rel="stylesheet" type="text/css" href="~/admin_assets/icon/icofont/css/icofont.css">
+         Style.css
+        <link rel="stylesheet" type="text/css" href="~/admin_assets/css/style.css">
+    </head>
+
+    <body class="fix-menu">
+         Pre-loader start
+        <div class="theme-loader">
+            <div class="loader-track">
+                <div class="loader-bar"></div>
+            </div>
+        </div>
+         Pre-loader end
+
+        <section class="login p-fixed d-flex text-center bg-primary common-img-bg">
+             Container-fluid starts
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                         Authentication card start
+                        <div asp-validation-summary="All" class="text-danger text text-center"></div>
+                        <div class="login-card card-block auth-body mr-auto ml-auto">
+                            <form class="md-float-material" method="POST" asp-action="Login" asp-controller="Account">
+                                <div class="text-center">
+                                    <img src="~/admin_assets/images/logo.png" alt="logo.png">
+                                </div>
+                                <div class="auth-box">
+                                    <div class="row m-b-20">
+                                        <div class="col-md-12">
+                                            <h3 class="text-left txt-primary">Sign In</h3>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" name="Email" placeholder="Your Email Address" asp-for="Email" required autofocus>
+                                        <span class="md-line"></span>
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" name="Password" placeholder="Password" asp-for="Password">
+                                        <span class="md-line"></span>
+                                    </div>
+                                    <div class="row m-t-25 text-left">
+                                        <div class="col-sm-6 col-xs-12 d-none">
+                                            <div class="checkbox-fade fade-in-primary">
+                                                <label>
+                                                    <input type="checkbox" value="">
+                                                    <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
+                                                    <span class="text-inverse">Remember me</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-xs-12 forgot-phone text-right">
+                                            <a href="#" class="text-right f-w-600 text-inverse"> Forgot Your Password?</a>
+                                        </div>
+                                    </div>
+                                    <div class="row m-t-30">
+                                        <div class="col-md-12">
+                                            <button type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Sign In</button>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <p class="text-inverse text-left m-b-0">Thank you and enjoy our product.</p>
+                                            <p class="text-inverse text-left"><b>TechVision Consultancy Services</b></p>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <img src="~/admin_assets/images/auth/Logo-small-bottom.png" alt="small-logo.png">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
+                             end of form
+                        </div>
+                         Authentication card end
+                    </div>
+                     end of col-sm-12
+                </div>
+                 end of row
+            </div>
+             end of container-fluid
+        </section>
+
+         Required Jquery
+        <script type="text/javascript" src="~/admin_assets/js/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="~/admin_assets/js/jquery-ui/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="~/admin_assets/js/popper.js/popper.min.js"></script>
+        <script type="text/javascript" src="~/admin_assets/js/bootstrap/js/bootstrap.min.js"></script>
+         jquery slimscroll js
+        <script type="text/javascript" src="~/admin_assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+         modernizr js
+        <script type="text/javascript" src="~/admin_assets/js/modernizr/modernizr.js"></script>
+        <script type="text/javascript" src="~/admin_assets/js/modernizr/css-scrollbars.js"></script>
+        <script type="text/javascript" src="~/admin_assets/js/common-pages.js"></script>
+    </body>
+
+    </html>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<!DOCTYPE html>
+    <html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <title>Sign In | TechVision CS PMS</title>
+         Favicon
+        <link rel="icon" href="~/admin_assets/favicon.ico" type="image/x-icon">
+
+         Google Fonts
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+         Bootstrap Core Css
+        <link href="~/admin_assets/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+         Waves Effect Css
+        <link href="~/admin_assets/plugins/node-waves/waves.css" rel="stylesheet" />
+
+         Animation Css
+        <link href="~/admin_assets/plugins/animate-css/animate.css" rel="stylesheet" />
+
+         Custom Css
+        <link href="~/admin_assets/css/style.css" rel="stylesheet">
+    </head>
+
+    <body class="login-page">
+        <div class="login-box">
+            <div class="logo">
+                <a href="javascript:void(0);">TechVision<b>CS</b></a>
+                <small>Pharmacy Management System</small>
+            </div>
+            <div class="card">
+                <div class="body">
+                    <form id="sign_in" method="POST" asp-action="Login" asp-controller="Account">
+                        <div class="msg">Sign in to start your session</div>
+                        <div asp-validation-summary="All" class="text-danger text text-center"></div>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="material-icons">person</i>
+                            </span>
+                            <div class="form-line">
+                                <input type="text" class="form-control" name="Email" placeholder="Email" asp-for="Email" required autofocus>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="material-icons">lock</i>
+                            </span>
+                            <div class="form-line">
+                                <input type="password" class="form-control" name="Password" placeholder="Password" asp-for="Password" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-8 p-t-5" style="display: none;">
+                                <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink d-none">
+                                <label for="rememberme" class="d-none">Remember Me</label>
+                            </div>
+                            <div class="col-xs-4 pull-right">
+                                <button class="btn btn-block bg-pink waves-effect" type="submit">SIGN IN</button>
+                            </div>
+                        </div>
+                        <div class="row m-t-15 m-b--20">
+                            <div class="col-xs-6">
+                                <a asp-action="Index" asp-controller="Home">Back to Home</a>
+                            </div>
+                            <div class="col-xs-6 align-right">
+                                <a href="#">Forgot Password?</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+         Jquery Core Js
+        <script src="~/admin_assets/plugins/jquery/jquery.min.js"></script>
+
+         Bootstrap Core Js
+        <script src="~/admin_assets/plugins/bootstrap/js/bootstrap.js"></script>
+
+         Waves Effect Plugin Js
+        <script src="~/admin_assets/plugins/node-waves/waves.js"></script>
+
+         Validation Plugin Js
+        <script src="~/admin_assets/plugins/jquery-validation/jquery.validate.js"></script>
+
+         Custom Js
+        <script src="~/admin_assets/js/admin.js"></script>
+        <script src="~/admin_assets/js/pages/examples/sign-in.js"></script>
+    </body>
+
+    </html>*@
+

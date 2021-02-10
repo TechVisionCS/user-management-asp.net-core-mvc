@@ -1,0 +1,127 @@
+﻿@model IEnumerable<IdentityRole>
+
+@{
+    ViewData["Title"] = "User Roles List";
+}
+
+
+<!-- Main-body start -->
+<div class="main-body">
+    <div class="page-wrapper">
+
+        <div class="row">
+            <div class="col-lg-9" style="margin:0 auto;">
+                @*Page-header start*@
+                <div class="page-header card">
+                    <div class="card-block">
+                        <h5 class="m-b-10">User Roles Administration</h5>
+                        <ul class="breadcrumb-title b-t-default p-t-10">
+                            <li class="breadcrumb-item pull-right">
+                                <a asp-action="CreateRole" asp-controller="Administration"
+                                   class="btn btn-mat btn-primary" style="color: white;">
+                                    <i class="fa fa-plus"></i> Add New Role
+                                </a>
+
+                                <a asp-action="Register" asp-controller="Account"
+                                   class="btn btn-mat btn-info" style="color: white;">
+                                    <i class="fa fa-user-plus"></i> Add New User
+                                </a>
+
+                                <a asp-action="Users" asp-controller="Administration"
+                                   class="btn btn-mat btn-info" style="color: white;">
+                                    <i class="fa fa-list"></i> Users List
+                                </a>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Page-header end -->
+                <!-- Page-body start -->
+                <div class="page-body">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>User Roles List</h5>
+                            <div class="card-header-right">
+                                <ul class="list-unstyled card-option">
+                                    <li><i class="fa fa-chevron-left"></i></li>
+                                    <li><i class="fa fa-window-maximize full-card"></i></li>
+                                    <li><i class="fa fa-minus minimize-card"></i></li>
+                                    <li><i class="fa fa-refresh reload-card"></i></li>
+                                    <li><i class="fa fa-times close-card"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card-block table-border-style">
+                            <div class="table-responsive">
+                                <table id="example1" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>SNo.</th>
+                                            <th>Role Name</th>
+                                            <th>Users</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @{ var sno = 1; }
+                                        @if (Model.Any())
+                                        {
+                                            foreach (var role in Model)
+                                            {
+                                                <tr>
+                                                    <td>@sno</td>
+                                                    <td>@role.Name</td>
+                                                    <td>
+                                                        <a asp-action="EditUsersInRole" asp-controller="Administration"
+                                                           asp-route-roleId="@role.Id" class="text text-info">
+                                                            <i class="fa fa-users"></i> Users
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <a asp-action="EditRole" asp-controller="Administration" asp-route-id="@role.Id"
+                                                           class="text text-primary mr-2">
+                                                            <i class="fa fa-edit"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <span class="d-none">@{sno++;}</span>
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    @*Basic table card end*@
+
+                </div>
+                @*Page-body end*@
+
+                <div class="page-header card">
+                    <div class="card-block">
+                        <ul class="">
+                            <li class="breadcrumb-item pull-left">
+                                <a onclick="window.history.back();;"
+                                   class="text text-danger font-weight-bold" style="cursor: pointer;">
+                                    <i class="fa fa-arrow-left"></i> Back
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+@*Main-body end*@
+
+
+
+
+

@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>@ViewData["Title"] | PMS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Gradient Able Bootstrap admin template made using Bootstrap 4. The starter version of Gradient Able is completely free for personal project." />
+    <meta name="keywords" content="free dashboard template, free admin, free bootstrap template, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
+    <meta name="author" content="codedthemes">
+    <!-- Favicon icon -->
+    <link rel="icon" href="~/admin_assets/images/favicon.ico" type="image/x-icon">
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="~/admin_assets/css/bootstrap/css/bootstrap.min.css">
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css" href="~/admin_assets/icon/themify-icons/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="~/admin_assets/icon/font-awesome/css/font-awesome.min.css">
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="~/admin_assets/icon/icofont/css/icofont.css">
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="~/lib/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/lib/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/lib/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="~/admin_assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/admin_assets/css/jquery.mCustomScrollbar.css">
+
+    @RenderSection("Styles", required: false)
+</head>
+
+<body>
+    @*<div class="fixed-button">
+            <a href="https://codedthemes.com/item/gradient-able-admin-template" target="_blank" class="btn btn-md btn-primary">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i> Upgrade To Pro
+            </a>
+        </div>*@
+    <!-- Pre-loader start -->
+    <div class="theme-loader">
+        <div class="loader-track">
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+    <!-- Pre-loader end -->
+    <div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+
+            @await Html.PartialAsync("_HeaderPartial.cshtml")
+
+            <div class="pcoded-main-container">
+                <div class="pcoded-wrapper">
+
+                    @await Html.PartialAsync("_LeftSidebarPartial.cshtml")
+
+                    <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+
+                            @RenderBody()
+
+                            <div id="styleSelector">
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Required Jquery -->
+    <script type="text/javascript" src="~/admin_assets/js/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/admin_assets/js/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/admin_assets/js/popper.js/popper.min.js"></script>
+    <script type="text/javascript" src="~/admin_assets/js/bootstrap/js/bootstrap.min.js"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="~/admin_assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" src="~/admin_assets/js/modernizr/modernizr.js"></script>
+    <!-- am chart -->
+    <script src="~/admin_assets/pages/widget/amchart/amcharts.min.js"></script>
+    <script src="~/admin_assets/pages/widget/amchart/serial.min.js"></script>
+    <!-- Chart js -->
+    <script type="text/javascript" src="~/admin_assets/js/chart.js/Chart.js"></script>
+    <!-- Todo js -->
+    <script type="text/javascript " src="~/admin_assets/pages/todo/todo.js "></script>
+
+    <!-- DataTables  & Plugins -->
+    <script src="~/lib/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/lib/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/lib/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/lib/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/lib/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/lib/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/lib/jszip/jszip.min.js"></script>
+    <script src="~/lib/pdfmake/pdfmake.min.js"></script>
+    <script src="~/lib/pdfmake/vfs_fonts.js"></script>
+    <script src="~/lib/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/lib/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="~/lib/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+    <!-- Custom js -->
+    <script type="text/javascript" src="~/admin_assets/pages/dashboard/custom-dashboard.min.js"></script>
+    <script type="text/javascript" src="~/admin_assets/js/script.js"></script>
+    <script type="text/javascript " src="~/admin_assets/js/SmoothScroll.js"></script>
+    <script src="~/admin_assets/js/pcoded.min.js"></script>
+    <script src="~/admin_assets/js/vartical-demo.js"></script>
+    <script src="~/admin_assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "buttons": ["excel", "pdf", "print"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        });
+    </script>
+    @RenderSection("Scripts", required: false)
+    @await Component.InvokeAsync("NToastNotify")
+</body>
+
+</html>
+
+
+<!--
+<li class="breadcrumb-item"><a><i class="fas fa-clock"></i> <span id="clock"></span></a></li>
+<li class="breadcrumb-item"><a><i class="fas fa-calendar"></i> <span id="tdate">today</span></a></li>
+colvis - show column visibility in datatable.
+-->

@@ -1,0 +1,754 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> signInManager
+@inject UserManager<ApplicationUser> userManager
+@{
+    var user = await userManager.GetUserAsync(User);
+}
+
+    <nav class="pcoded-navbar">
+        <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+        <div class="pcoded-inner-navbar main-menu">
+
+            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">MAIN NAVIGATION</div>
+            <ul class="pcoded-item pcoded-left-item">
+                <li class="active">
+                    <a asp-action="Index" asp-controller="Dashboard">
+                        <span class="pcoded-micon"><i class="ti-dashboard"></i><b>D</b></span>
+                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
+                <li class="pcoded-hasmenu">
+                    <a href="javascript:void(0)">
+                        <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                        <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Invoice</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                    <ul class="pcoded-submenu">
+                        <li class=" ">
+                            <a href="accordion.html">
+                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">New Invoice (BC)</span>
+                                <span class="pcoded-mcaret"></span>
+                            </a>
+                        </li>
+                        <li class=" ">
+                            <a href="breadcrumb.html">
+                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">New Invoice</span>
+                                <span class="pcoded-mcaret"></span>
+                            </a>
+                        </li>
+                        <li class=" ">
+                            <a href="button.html">
+                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Manage Invoices</span>
+                                <span class="pcoded-mcaret"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Forms &amp; Tables</div>
+            <ul class="pcoded-item pcoded-left-item">
+                <li>
+                    <a href="form-elements-component.html">
+                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Form Components</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="bs-basic-table.html">
+                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Basic Table</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Chart &amp; Maps</div>
+            <ul class="pcoded-item pcoded-left-item">
+                <li>
+                    <a href="chart.html">
+                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Chart</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="map-google.html">
+                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Maps</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
+                <li class="pcoded-hasmenu">
+                    <a href="javascript:void(0)">
+                        <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                        <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Pages</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                    <ul class="pcoded-submenu">
+                        <li class=" ">
+                            <a href="auth-normal-sign-in.html">
+                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Login</span>
+                                <span class="pcoded-mcaret"></span>
+                            </a>
+                        </li>
+                        <li class=" ">
+                            <a href="auth-sign-up.html">
+                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Register</span>
+                                <span class="pcoded-mcaret"></span>
+                            </a>
+                        </li>
+                        <li class=" ">
+                            <a href="sample-page.html">
+                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Sample Page</span>
+                                <span class="pcoded-mcaret"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+
+            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.other">SYSTEM SETTINGS</div>
+            <ul class="pcoded-item pcoded-left-item">
+                <li class="pcoded-hasmenu ">
+                    <a href="javascript:void(0)">
+                        <span class="pcoded-micon"><i class="ti-hummer"></i></span>
+                        <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Settings</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                    <ul class="pcoded-submenu">
+                        <li class="pcoded-hasmenu ">
+                            <a href="javascript:void(0)">
+                                <span class="pcoded-micon"><i class="ti-direction-alt"></i></span>
+                                <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.main">User Management</span>
+                                <span class="pcoded-mcaret"></span>
+                            </a>
+                            <ul class="pcoded-submenu">
+                                <li class="">
+                                    <a asp-action="Users" asp-controller="Administration">
+                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Manage Users</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a asp-action="Roles" asp-controller="Administration">
+                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Manage Roles</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="pcoded-hasmenu ">
+                            <a href="javascript:void(0)">
+                                <span class="pcoded-micon"><i class="ti-direction-alt"></i></span>
+                                <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.main">Pharmacy Settings</span>
+                                <span class="pcoded-mcaret"></span>
+                            </a>
+                            <ul class="pcoded-submenu">
+                                <li class="">
+                                    <a href="#">
+                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Manage Users</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="#">
+                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Manage Roles</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="pcoded-hasmenu ">
+                            <a href="javascript:void(0)">
+                                <span class="pcoded-micon"><i class="ti-direction-alt"></i></span>
+                                <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.main">Application Settings</span>
+                                <span class="pcoded-mcaret"></span>
+                            </a>
+                            <ul class="pcoded-submenu">
+                                <li class="">
+                                    <a href="#">
+                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Manage Users</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="#">
+                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Manage Roles</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="pcoded-hasmenu ">
+                            <a href="javascript:void(0)">
+                                <span class="pcoded-micon"><i class="ti-direction-alt"></i></span>
+                                <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.main">Web Settings</span>
+                                <span class="pcoded-mcaret"></span>
+                            </a>
+                            <ul class="pcoded-submenu">
+                                <li class="">
+                                    <a href="#">
+                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Manage Users</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="#">
+                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Manage Roles</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        @*<li class="">
+                        <a href="javascript:void(0)">
+                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                            <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-23">Menu Level 2.3</span>
+                            <span class="pcoded-mcaret"></span>
+                        </a>
+                    </li>*@
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="pcoded-item pcoded-left-item">
+                <li class="pcoded-hasmenu">
+                    <a href="javascript:void(0)">
+                        <span class="pcoded-micon"><i class="ti-help-alt"></i></span>
+                        <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Support</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                    <ul class="pcoded-submenu">
+                        <li class=" ">
+                            <a href="auth-normal-sign-in.html">
+                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Documentation</span>
+                                <span class="pcoded-mcaret"></span>
+                            </a>
+                        </li>
+                        <li class=" ">
+                            <a href="auth-sign-up.html">
+                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Help</span>
+                                <span class="pcoded-mcaret"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a onclick="event.preventDefault();
+                                        document.getElementById('logout-form222').submit();" style="cursor: pointer;">
+                        <span class="pcoded-micon"><i class="fa fa-sign-out"></i></span>
+                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Logout</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                    <form method="post" asp-action="FullLogout" asp-controller="Account" id="logout-form222" style="display: none;"></form>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<aside id="leftsidebar" class="sidebar">
+     User Info 
+    <div class="user-info">
+        <div class="image">
+            <img src="~/admin_assets/images/user.png" width="48" height="48" alt="User" />
+        </div>
+        <div class="info-container">
+                @if (signInManager.IsSignedIn(User))
+                {
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@user.FullName</div>
+                    <div class="email">@user.Email</div>
+                }
+                <div class="btn-group user-helper-dropdown">
+                    <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                    <ul class="dropdown-menu pull-right">
+                        <li><a href="javascript:void(0);"><i class="material-icons">build</i>Setting</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a asp-action="ChangePassword" asp-controller="Account"><i class="material-icons">lock</i>Change Password</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a onclick="event.preventDefault();
+                                        document.getElementById('logout-form2222').submit();"><i class="material-icons">input</i>Sign Out</a>
+                            <form method="post" asp-action="FullLogout" asp-controller="Account" id="logout-form2222" style="display: none;"></form>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+    </div>
+     #User Info 
+     Menu 
+    <div class="menu">
+        <ul class="list">
+            <li class="header">MAIN NAVIGATION</li>
+            <li class="active">
+                <a asp-action="Index" asp-controller="Dashboard">
+                    <i class="material-icons">dashboard</i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+            <a href="pages/typography.html">
+                <i class="material-icons">text_fields</i>
+                <span>Typography</span>
+            </a>
+        </li>
+
+            <li>
+                <a href="javascript:void(0);" class="menu-toggle">
+                    <i class="material-icons">description</i>
+                    <span>Invoice</span>
+                </a>
+                <ul class="ml-menu">
+                    <li>
+                        <a href="">New Invoice (BC)</a>
+                    </li>
+                    <li>
+                        <a href="">New Invoice</a>
+                    </li>
+                    <li>
+                        <a href="">Manage Invoices</a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li>
+                <a href="javascript:void(0);" class="menu-toggle">
+                    <i class="material-icons">build</i>
+                    <span>Settings</span>
+                </a>
+                <ul class="ml-menu">
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <span>User Management</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a asp-action="Users" asp-controller="Administration">Manage Users</a>
+                            </li>
+                            <li>
+                                <a asp-action="Roles" asp-controller="Administration">Manage Roles</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <span>Manage Pharmacy</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="pages/widgets/infobox/infobox-1.html">Infobox-1</a>
+                            </li>
+                            <li>
+                                <a href="pages/widgets/infobox/infobox-2.html">Infobox-2</a>
+                            </li>
+                            <li>
+                                <a href="pages/widgets/infobox/infobox-3.html">Infobox-3</a>
+                            </li>
+                            <li>
+                                <a href="pages/widgets/infobox/infobox-4.html">Infobox-4</a>
+                            </li>
+                            <li>
+                                <a href="pages/widgets/infobox/infobox-5.html">Infobox-5</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <span>Application Settings</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="pages/widgets/infobox/infobox-1.html">Infobox-1</a>
+                            </li>
+                            <li>
+                                <a href="pages/widgets/infobox/infobox-2.html">Infobox-2</a>
+                            </li>
+                            <li>
+                                <a href="pages/widgets/infobox/infobox-3.html">Infobox-3</a>
+                            </li>
+                            <li>
+                                <a href="pages/widgets/infobox/infobox-4.html">Infobox-4</a>
+                            </li>
+                            <li>
+                                <a href="pages/widgets/infobox/infobox-5.html">Infobox-5</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <span>Web Settings</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="pages/widgets/infobox/infobox-1.html">Infobox-1</a>
+                            </li>
+                            <li>
+                                <a href="pages/widgets/infobox/infobox-2.html">Infobox-2</a>
+                            </li>
+                            <li>
+                                <a href="pages/widgets/infobox/infobox-3.html">Infobox-3</a>
+                            </li>
+                            <li>
+                                <a href="pages/widgets/infobox/infobox-4.html">Infobox-4</a>
+                            </li>
+                            <li>
+                                <a href="pages/widgets/infobox/infobox-5.html">Infobox-5</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="javascript:void(0);" class="menu-toggle">
+                    <i class="material-icons">work</i>
+                    <span>Support</span>
+                </a>
+                <ul class="ml-menu">
+                    <li>
+                        <a href="">Documentation</a>
+                    </li>
+                    <li>
+                        <a href="">Help</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a onclick="event.preventDefault();
+                                        document.getElementById('logout-form222').submit();">
+                    <i class="material-icons">input</i>
+                    <span>Sign Out</span>
+                </a>
+                <form method="post" asp-action="FullLogout" asp-controller="Account" id="logout-form222" style="display: none;"></form>
+            </li>
+
+        </ul>
+    </div>
+     #Menu 
+     Footer 
+    <div class="legal">
+        <div class="copyright">
+            &copy; 2020 <a href="javascript:void(0);">TechVision CS - PMS</a>.
+        </div>
+        <div class="version">
+            <b>Version: </b> 1.0.0
+        </div>
+    </div>
+     #Footer 
+</aside>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<ASIDE CLASS="MAIN-SIDEBAR SIDEBAR-DARK-PRIMARY ELEVATION-4">-->
+    <!-- BRAND LOGO -->
+    <!--<A ASP-CONTROLLER="DASHBOARD" ASP-ACTION="INDEX" CLASS="BRAND-LINK">
+        <IMG SRC="~/ADMIN_ASSETS/DIST/IMG/ADMINLTELOGO.PNG" ALT="LOGO" CLASS="BRAND-IMAGE IMG-CIRCLE ELEVATION-3" STYLE="OPACITY: .8">
+        <SPAN CLASS="BRAND-TEXT FONT-WEIGHT-LIGHT">AFGHAN PHARMA</SPAN>
+    </A>-->
+
+    <!-- SIDEBAR -->
+    <!--<DIV CLASS="SIDEBAR">-->
+        <!-- SIDEBAR USER PANEL (OPTIONAL) -->
+        <!--<DIV CLASS="USER-PANEL MT-3 PB-3 MB-3 D-FLEX">
+            <DIV CLASS="IMAGE">
+                <IMG SRC="~/IMG/USERS-VECTOR-ICON-PNG_260862.JPG" CLASS="IMG-CIRCLE ELEVATION-2" ALT="USER IMAGE">
+            </DIV>
+            <DIV CLASS="INFO">
+                <P CLASS="D-BLOCK TEXT TEXT-WHITE">
+                    
+                </P>
+            </DIV>
+        </DIV>-->
+
+        <!-- SIDEBARSEARCH FORM -->
+        <!--<DIV CLASS="FORM-INLINE">
+            <DIV CLASS="INPUT-GROUP" DATA-WIDGET="SIDEBAR-SEARCH">
+                <INPUT CLASS="FORM-CONTROL FORM-CONTROL-SIDEBAR" TYPE="SEARCH" PLACEHOLDER="SEARCH" ARIA-LABEL="SEARCH">
+                <DIV CLASS="INPUT-GROUP-APPEND">
+                    <BUTTON CLASS="BTN BTN-SIDEBAR">
+                        <I CLASS="FAS FA-SEARCH FA-FW"></I>
+                    </BUTTON>
+                </DIV>
+            </DIV>
+        </DIV>-->
+
+        <!-- SIDEBAR MENU -->
+        <!--<NAV CLASS="MT-2">
+            <UL CLASS="NAV NAV-PILLS NAV-SIDEBAR FLEX-COLUMN" DATA-WIDGET="TREEVIEW" ROLE="MENU" DATA-ACCORDION="FALSE">-->
+                <!-- ADD ICONS TO THE LINKS USING THE .NAV-ICON CLASS
+                WITH FONT-AWESOME OR ANY OTHER ICON FONT LIBRARY -->
+                <!--<LI CLASS="NAV-ITEM MENU-OPEN">
+                    <A ASP-CONTROLLER="DASHBOARD" ASP-ACTION="INDEX" CLASS="NAV-LINK ACTIVE">
+                        <I CLASS="NAV-ICON FAS FA-TACHOMETER-ALT"></I>
+                        <P>
+                            DASHBOARD
+                        </P>
+                    </A>
+                </LI>
+
+                <LI CLASS="NAV-ITEM">
+                    <A HREF="#" CLASS="NAV-LINK">
+                        <I CLASS="NAV-ICON FAS FA-FILE-INVOICE"></I>
+                        <P>
+                            INVOICE
+                            <I CLASS="FAS FA-ANGLE-LEFT RIGHT"></I>
+                        </P>
+                    </A>
+                    <UL CLASS="NAV NAV-TREEVIEW">
+                        <LI CLASS="NAV-ITEM">
+                            <A HREF="#" CLASS="NAV-LINK">
+                                <I CLASS="FAR FA-CIRCLE NAV-ICON"></I>
+                                <P>NEW INVOICE</P>
+                            </A>
+                        </LI>
+                        <LI CLASS="NAV-ITEM">
+                            <A HREF="#" CLASS="NAV-LINK">
+                                <I CLASS="FAR FA-CIRCLE NAV-ICON"></I>
+                                <P>MANAGE INVOICES</P>
+                            </A>
+                        </LI>
+                    </UL>
+                </LI>
+
+
+
+                <LI CLASS="NAV-ITEM">
+                    <A HREF="#" CLASS="NAV-LINK">
+                        <I CLASS="NAV-ICON FAS FA-COGS"></I>
+                        <P>
+                            SETTINGS
+                            <I CLASS="RIGHT FAS FA-ANGLE-LEFT"></I>
+                        </P>
+                    </A>
+                    <UL CLASS="NAV NAV-TREEVIEW">
+                        <LI CLASS="NAV-ITEM">
+                            <A HREF="#" CLASS="NAV-LINK">
+                                <I CLASS="FAR FA-CIRCLE NAV-ICON"></I>
+                                <P>
+                                    USER MANAGEMENT
+                                    <I CLASS="RIGHT FAS FA-ANGLE-LEFT"></I>
+                                </P>
+                            </A>
+                            <UL CLASS="NAV NAV-TREEVIEW">
+                                <LI CLASS="NAV-ITEM">
+                                    <A ASP-ACTION="USERS" ASP-CONTROLLER="ADMINISTRATION" CLASS="NAV-LINK">
+                                        <I CLASS="FAR FA-DOT-CIRCLE NAV-ICON"></I>
+                                        <P>MANAGE USERS</P>
+                                    </A>
+                                </LI>
+                                <LI CLASS="NAV-ITEM">
+                                    <A ASP-ACTION="ROLES" ASP-CONTROLLER="ADMINISTRATION" CLASS="NAV-LINK">
+                                        <I CLASS="FAR FA-DOT-CIRCLE NAV-ICON"></I>
+                                        <P>MANAGE ROLES</P>
+                                    </A>
+                                </LI>
+                            </UL>
+                        </LI>
+
+                        <LI CLASS="NAV-ITEM">
+                            <A HREF="#" CLASS="NAV-LINK">
+                                <I CLASS="FAR FA-CIRCLE NAV-ICON"></I>
+                                <P>
+                                    APPLICATION SETTINGS
+                                    <I CLASS="RIGHT FAS FA-ANGLE-LEFT"></I>
+                                </P>
+                            </A>
+                            <UL CLASS="NAV NAV-TREEVIEW">
+                                <LI CLASS="NAV-ITEM">
+                                    <A HREF="#" CLASS="NAV-LINK">
+                                        <I CLASS="FAR FA-DOT-CIRCLE NAV-ICON"></I>
+                                        <P>MANAGE PHARMACY</P>
+                                    </A>
+                                </LI>
+                                <LI CLASS="NAV-ITEM">
+                                    <A HREF="#" CLASS="NAV-LINK">
+                                        <I CLASS="FAR FA-DOT-CIRCLE NAV-ICON"></I>
+                                        <P>WEB SETTINGS</P>
+                                    </A>
+                                </LI>
+                            </UL>
+                        </LI>
+
+                        <LI CLASS="NAV-ITEM">
+                            <A HREF="#" CLASS="NAV-LINK">
+                                <I CLASS="FAR FA-CIRCLE NAV-ICON"></I>
+                                <P>
+                                    EMAIL & SMS SETTINGS
+                                    <I CLASS="RIGHT FAS FA-ANGLE-LEFT"></I>
+                                </P>
+                            </A>
+                            <UL CLASS="NAV NAV-TREEVIEW">
+                                <LI CLASS="NAV-ITEM">
+                                    <A HREF="#" CLASS="NAV-LINK">
+                                        <I CLASS="FAR FA-DOT-CIRCLE NAV-ICON"></I>
+                                        <P>EMAIL CONFIGURATION</P>
+                                    </A>
+                                </LI>
+                                <LI CLASS="NAV-ITEM">
+                                    <A HREF="#" CLASS="NAV-LINK">
+                                        <I CLASS="FAR FA-DOT-CIRCLE NAV-ICON"></I>
+                                        <P>SMS CONFIGURATION</P>
+                                    </A>
+                                </LI>
+                            </UL>
+                        </LI>
+
+                        <LI CLASS="NAV-ITEM">
+                            <A HREF="#" CLASS="NAV-LINK">
+                                <I CLASS="FAR FA-CIRCLE NAV-ICON"></I>
+                                <P>
+                                    DATA SYNCHRONIZER
+                                    <I CLASS="RIGHT FAS FA-ANGLE-LEFT"></I>
+                                </P>
+                            </A>
+                            <UL CLASS="NAV NAV-TREEVIEW">
+                                <LI CLASS="NAV-ITEM">
+                                    <A HREF="#" CLASS="NAV-LINK">
+                                        <I CLASS="FAR FA-DOT-CIRCLE NAV-ICON"></I>
+                                        <P>SYSTEM BACKUP</P>
+                                    </A>
+                                </LI>
+                                <LI CLASS="NAV-ITEM">
+                                    <A HREF="#" CLASS="NAV-LINK">
+                                        <I CLASS="FAR FA-DOT-CIRCLE NAV-ICON"></I>
+                                        <P>SYSTEM RESTORE</P>
+                                    </A>
+                                </LI>
+                                <LI CLASS="NAV-ITEM">
+                                    <A HREF="#" CLASS="NAV-LINK">
+                                        <I CLASS="FAR FA-DOT-CIRCLE NAV-ICON"></I>
+                                        <P>BACKUP & RESTORE LOG</P>
+                                    </A>
+                                </LI>
+                            </UL>
+                        </LI>
+
+                    </UL>
+                </LI>
+
+                <LI CLASS="NAV-ITEM">
+                    <A HREF="#" CLASS="NAV-LINK">
+                        <I CLASS="NAV-ICON FAS FA-QUESTION-CIRCLE"></I>
+                        <P>
+                            HELP
+                            <I CLASS="FAS FA-ANGLE-LEFT RIGHT"></I>
+                        </P>
+                    </A>
+                    <UL CLASS="NAV NAV-TREEVIEW">
+                        <LI CLASS="NAV-ITEM">
+                            <A HREF="#" CLASS="NAV-LINK">
+                                <I CLASS="FAR FA-CIRCLE NAV-ICON"></I>
+                                <P>USER MANUAL</P>
+                            </A>
+                        </LI>
+                        <LI CLASS="NAV-ITEM">
+                            <A HREF="#" CLASS="NAV-LINK">
+                                <I CLASS="FAR FA-CIRCLE NAV-ICON"></I>
+                                <P>SUPPORT</P>
+                            </A>
+                        </LI>
+                    </UL>
+                </LI>
+
+                <LI CLASS="NAV-ITEM">
+                    <A ONCLICK="EVENT.PREVENTDEFAULT();
+                                        DOCUMENT.GETELEMENTBYID('LOGOUT-FORM2222').SUBMIT();" CLASS="NAV-LINK">
+                        <I CLASS="NAV-ICON FAS FA-SIGN-OUT-ALT"></I>
+                        <P>
+                            LOGOUT
+                        </P>
+                    </A>
+                    <FORM METHOD="POST" ASP-ACTION="FULLLOGOUT" ASP-CONTROLLER="ACCOUNT" ID="LOGOUT-FORM2222" STYLE="DISPLAY: NONE;"></FORM>
+                </LI>
+
+
+            </UL>
+        </NAV>-->
+        <!-- /.SIDEBAR-MENU -->
+    <!--</DIV>-->
+    <!-- /.SIDEBAR -->
+<!--</ASIDE>-->
